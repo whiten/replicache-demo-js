@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script src="wasm_exec.js"></script>
+    <script>
+      async function init() {
+        const go = new Go();
+        go.run((await WebAssembly.instantiateStreaming(
+            fetch("repjs"), go.importObject)).instance);
+      }
+      init();
+    </script>
+  </head>
+  <body/>
+    <h1>Hello WASM!</h1>
+  </body>
+</html>
